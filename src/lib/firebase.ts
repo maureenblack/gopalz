@@ -15,10 +15,28 @@ const firebaseConfig = {
 };
 
 // Initialize Firebase
-const app = getApps().length === 0 ? initializeApp(firebaseConfig) : getApps()[0];
-const analytics = typeof window !== 'undefined' ? getAnalytics(app) : null;
-const auth = getAuth(app);
-const db = getFirestore(app);
-const storage = getStorage(app);
+let app;
+let analytics = null;
+let auth;
+let db;
+let storage;
+
+try {
+  // Check if Firebase is already initialized
+  app = getApps().length === 0 ? initializeApp(firebaseConfig) : getApps()[0];
+
+  // Only initialize client-side services in browser environment
+  if (typeof window !== 'undefined') {
+    analytics = getAnalytics(app);
+    auth = getAuth(app);
+    auth.useDeviceLanguage(); // Set auth language to match device
+
+    // Initialize other services
+    db = getFirestore(app);
+    storage = getStorage(app);
+  }
+} catch (error) {
+  console.error('Firebase initialization error:', error);
+}
 
 export { app, auth, db, storage, analytics };
