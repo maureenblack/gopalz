@@ -1,7 +1,10 @@
 import type { AppProps } from 'next/app';
 import { useEffect } from 'react';
+import { useRouter } from 'next/router';
 import '@/styles/globals.scss';
+import '@/styles/auth.scss';
 import { AuthProvider } from '@/contexts/AuthContext';
+import Layout from '@/components/Layout';
 
 export default function App({ Component, pageProps }: AppProps) {
   // Wrap the app with AuthProvider
@@ -20,9 +23,20 @@ export default function App({ Component, pageProps }: AppProps) {
     )
   }, [])
 
+  // Do not wrap auth pages with Layout
+  const noLayoutPages = ["/login", "/signup"];
+  const pathname = useRouter().pathname;
+  const shouldUseLayout = !noLayoutPages.includes(pathname);
+
   return (
     <AuthProvider>
-      <Component {...pageProps} />
+      {shouldUseLayout ? (
+        <Layout>
+          <Component {...pageProps} />
+        </Layout>
+      ) : (
+        <Component {...pageProps} />
+      )}
     </AuthProvider>
   )
 }

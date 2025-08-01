@@ -6,9 +6,9 @@ import { getStorage } from 'firebase/storage';
 
 const firebaseConfig = {
   apiKey: "AIzaSyBhlUazexpv1z2gUTtMcylGgKT6m8QcDYs",
-  authDomain: "gopalz.firebaseapp.com",
-  projectId: "gopalz",
-  storageBucket: "gopalz.firebasestorage.app",
+  authDomain: "gopalz-io.firebaseapp.com",
+  projectId: "gopalz-io",
+  storageBucket: "gopalz-io.appspot.com",
   messagingSenderId: "236524816129",
   appId: "1:236524816129:web:5d29d6fa6dc7c556367d00",
   measurementId: "G-59X5SS1NE3"

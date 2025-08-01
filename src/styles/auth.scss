@@ -1,0 +1,180 @@
+// Auth pages specific styles
+.auth-page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+
+  .auth-navbar {
+    background: linear-gradient(to right, #6f42c1, #8854d0);
+    padding: 1rem 0;
+
+    .navbar-brand {
+      img {
+        filter: brightness(0) invert(1);
+      }
+    }
+
+    .nav-link {
+      color: rgba(255, 255, 255, 0.9);
+      font-weight: 500;
+      &:hover {
+        color: #fff;
+      }
+    }
+
+    .btn-outline-light {
+      border-width: 2px;
+      font-weight: 500;
+      &:hover {
+        background-color: #fff;
+        color: #6f42c1;
+      }
+    }
+  }
+
+  .auth-content {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    padding: 2rem 0;
+
+    @media (prefers-color-scheme: light) {
+      background: linear-gradient(135deg, #f5f7fa 0%, #eef2f7 100%);
+      color: #1a202c;
+
+      .auth-form {
+        background: #fff;
+        box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.08);
+
+        .text-muted {
+          color: #718096 !important;
+        }
+
+        .form-control {
+          background: #fff;
+          border-color: #e2e8f0;
+          color: #1a202c;
+
+          &:focus {
+            border-color: #6f42c1;
+            box-shadow: 0 0 0 0.2rem rgba(111, 66, 193, 0.25);
+          }
+        }
+
+        .btn-primary {
+          background: #6f42c1;
+          border-color: #6f42c1;
+          color: #fff;
+
+          &:hover {
+            background: #8854d0;
+            border-color: #8854d0;
+          }
+        }
+
+        .btn-outline-dark {
+          color: #1a202c;
+          border-color: #4a5568;
+
+          &:hover {
+            background-color: #f8f9fa;
+          }
+        }
+
+        .alert-danger {
+          background-color: #fff5f5;
+          border-color: #feb2b2;
+          color: #c53030;
+        }
+      }
+    }
+
+    @media (prefers-color-scheme: dark) {
+      background: linear-gradient(135deg, #1a202c 0%, #2d3748 100%);
+      color: #fff;
+
+      .auth-form {
+        background: #2d3748;
+        box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
+
+        .text-muted {
+          color: #a0aec0 !important;
+        }
+
+        .form-control {
+          background: #1a202c;
+          border-color: #4a5568;
+          color: #fff;
+
+          &:focus {
+            border-color: #8854d0;
+            box-shadow: 0 0 0 0.2rem rgba(136, 84, 208, 0.25);
+          }
+
+          &::placeholder {
+            color: #718096;
+          }
+        }
+
+        .btn-primary {
+          background: #8854d0;
+          border-color: #8854d0;
+          color: #fff;
+
+          &:hover {
+            background: #9f7aea;
+            border-color: #9f7aea;
+          }
+        }
+
+        .btn-outline-dark {
+          color: #fff;
+          border-color: #718096;
+
+          &:hover {
+            background-color: #4a5568;
+          }
+        }
+
+        .alert-danger {
+          background-color: #742a2a;
+          border-color: #9b2c2c;
+          color: #fff;
+        }
+      }
+    }
+
+    .auth-form {
+      border-radius: 1rem;
+      padding: 2.5rem;
+
+      .form-control {
+        border-radius: 0.5rem;
+        padding: 0.75rem 1rem;
+      }
+
+      .btn {
+        border-radius: 0.5rem;
+        padding: 0.75rem 1rem;
+        font-weight: 500;
+      }
+    }
+  }
+}
+
+.auth-footer {
+  padding: 1rem 0;
+  text-align: center;
+
+  @media (prefers-color-scheme: light) {
+    background: #fff;
+    border-top: 1px solid #e2e8f0;
+    color: #718096;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    background: #1a202c;
+    border-top: 1px solid #4a5568;
+    color: #a0aec0;
+  }
+}
