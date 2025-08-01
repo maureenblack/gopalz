@@ -13,7 +13,9 @@
     "@firebase/firestore": "^4.9.0",
     "@firebase/storage": "^0.14.0",
     "@popperjs/core": "^2.11.8",
-    "bootstrap": "^5.3.7",
+    "animate.css": "^4.1.1",
+    "aos": "^2.3.4",
+    "bootstrap-icons": "^1.13.1",
     "firebase": "^12.0.0",
     "next": "15.4.5",
     "next-auth": "^4.24.11",
@@ -24,9 +26,12 @@
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",
+    "@types/bootstrap": "^5.2.10",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "bootstrap": "^5.3.1",
+    "sass": "^1.89.2",
     "tailwindcss": "^4",
     "typescript": "^5"
   }

@@ -1,0 +1,176 @@
+@import "./variables";
+@import "bootstrap/scss/bootstrap";
+
+// Navbar styles
+.navbar {
+  min-height: 80px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+
+  .nav-link {
+    position: relative;
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+    margin: 0 0.25rem;
+    transition: all 0.3s ease;
+
+    &:after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: 0;
+      left: 50%;
+      background-color: $secondary;
+      transition: all 0.3s ease;
+    }
+
+    &:hover:after {
+      width: 100%;
+      left: 0;
+    }
+  }
+
+  .btn-join {
+    background: linear-gradient(45deg, $secondary, darken($secondary, 10%));
+    border: none;
+    padding: 0.5rem 1.5rem;
+    border-radius: 25px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    text-decoration: none;
+
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 15px rgba($secondary, 0.3);
+    }
+  }
+}
+
+// Light mode styles
+[data-bs-theme="light"] {
+  .navbar {
+    background: $primary;
+
+    // White navigation items
+    .nav-link {
+      color: white;
+      &:hover {
+        color: rgba(255, 255, 255, 0.9);
+      }
+    }
+
+    // White logo
+    .navbar-brand img {
+      filter: brightness(0) invert(1);
+    }
+
+    // White hamburger menu
+    .navbar-toggler-icon {
+      filter: brightness(0) invert(1);
+    }
+  }
+}
+
+// Dark mode styles
+[data-bs-theme="dark"] {
+  // Overall dark background
+  background-color: #1a1a1a;
+  color: white;
+
+  // Black navbar in dark mode
+  .navbar {
+    background: #000000;
+
+    // White navigation items
+    .nav-link {
+      color: white;
+      &:hover {
+        color: rgba(255, 255, 255, 0.9);
+      }
+    }
+
+    // Keep logo purple (no filter)
+    .navbar-brand img {
+      // Remove any filters to keep original purple color
+      filter: none;
+    }
+
+    // White hamburger menu
+    .navbar-toggler-icon {
+      filter: brightness(0) invert(1);
+    }
+  }
+
+  // White buttons in dark mode
+  .btn {
+    color: white;
+    &:hover {
+      color: white;
+    }
+  }
+}
+
+// Make sure logo maintains quality
+.navbar-brand img {
+  max-width: none;
+}
+
+// Bootstrap theme variables
+:root {
+  --bs-primary: #{$primary};
+  --bs-secondary: #{$secondary};
+}
+
+// Premium text gradient
+.text-gradient {
+  background: linear-gradient(45deg, $secondary, lighten($secondary, 20%));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+}
+
+// Premium button styles
+.btn {
+  &.btn-lg {
+    font-weight: 600;
+    letter-spacing: 0.5px;
+  }
+
+  &.btn-outline-light {
+    &:hover {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+    }
+  }
+}
+
+// Badge styles
+.badge {
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  
+  &.bg-light {
+    background: rgba(255, 255, 255, 0.9) !important;
+    backdrop-filter: blur(10px);
+  }
+}
+
+// Light mode styles
+[data-bs-theme="light"] {
+  --bs-body-bg: white;
+  --bs-body-color: #212529;
+  --bs-navbar-color: white;
+  --bs-navbar-hover-color: rgba(255, 255, 255, 0.9);
+}
+
+// Dark mode styles
+[data-bs-theme="dark"] {
+  --bs-body-bg: #1a1a1a;
+  --bs-body-color: white;
+  --bs-navbar-color: white;
+  --bs-navbar-hover-color: rgba(255, 255, 255, 0.9);
+  --bs-btn-color: white;
+  --bs-btn-hover-color: white;
+}

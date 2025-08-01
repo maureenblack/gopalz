@@ -1,0 +1,26 @@
+// Custom Bootstrap theme
+$primary: #6B46C1; // Purple
+$secondary: #FFD700; // Gold
+
+// Dark mode colors
+[data-bs-theme="dark"] {
+  --bs-body-bg: #1a1a1a;
+  --bs-body-color: #fff;
+  --bs-primary: #{$primary};
+  --bs-secondary: #{$secondary};
+  --bs-navbar-color: rgba(255, 255, 255, 0.85);
+  --bs-navbar-hover-color: rgba(255, 255, 255, 1);
+  --bs-navbar-active-color: rgba(255, 255, 255, 1);
+}
+
+// Light mode colors
+[data-bs-theme="light"] {
+  --bs-primary: #{$primary};
+  --bs-secondary: #{$secondary};
+  --bs-navbar-color: rgba(0, 0, 0, 0.85);
+  --bs-navbar-hover-color: rgba(0, 0, 0, 1);
+  --bs-navbar-active-color: rgba(0, 0, 0, 1);
+}
+
+// Import Bootstrap
+@import "bootstrap/scss/bootstrap";
