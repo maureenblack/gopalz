@@ -29,8 +29,10 @@ export default function Home() {
     <>
       <Head>
         <title>GoPalz - Find Your Next Adventure Buddy</title>
-        <link rel="icon" href="/Gopalzicon.png" sizes="32x32" />
-        <link rel="icon" href="/Gopalzicon.png" sizes="192x192" />
+        <link rel="icon" href="/Gopalzicon.png" />
+        <link rel="icon" href="/Gopalzicon.png" type="image/png" />
+        <link rel="apple-touch-icon" href="/Gopalzicon.png" />
+        <link rel="shortcut icon" href="/Gopalzicon.png" type="image/png" />
         <meta name="description" content="Connect with trusted adventure buddies for your next outdoor experience" />
       </Head>
 
@@ -94,21 +96,19 @@ export default function Home() {
 
       {/* Hero Section */}
       <section className="hero min-vh-100 d-flex align-items-center position-relative overflow-hidden">
-        {/* Background image with overlay */}
-        <div className="hero-bg position-absolute w-100 h-100" 
-             style={{
-               backgroundImage: 'url(https://images.unsplash.com/photo-1504280390367-361c6d9f38f4?ixlib=rb-4.0.3)',
-               backgroundSize: 'cover',
-               backgroundPosition: 'center',
-               zIndex: -2
-             }}>
-        </div>
-        {/* Dark overlay */}
-        <div className="position-absolute w-100 h-100" 
-             style={{
-               backgroundColor: 'rgba(0, 0, 0, 0.6)',
-               zIndex: -1
-             }}>
+        {/* Background with overlay */}
+        <div className="position-absolute w-100 h-100" style={{ zIndex: -1 }}>
+          <Image
+            src="https://images.unsplash.com/photo-1504280390367-361c6d9f38f4?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80"
+            alt="Adventure background"
+            fill
+            style={{ 
+              objectFit: 'cover', 
+              objectPosition: 'center',
+              filter: 'brightness(0.5)'
+            }}
+            priority
+          />
         </div>
         <div className="container text-center text-white">
           <h1 className="display-2 fw-bold mb-4 animate__animated animate__fadeIn">

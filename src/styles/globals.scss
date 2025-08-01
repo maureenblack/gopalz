@@ -74,6 +74,16 @@
 
 // Dark mode styles
 [data-bs-theme="dark"] {
+  // Hero styles
+  .hero {
+    background-size: cover;
+    background-position: center;
+    position: relative;
+
+    .transition-opacity {
+      transition: opacity 0.3s ease;
+    }
+  }
   // Overall dark background
   background-color: #1a1a1a;
   color: white;
@@ -122,13 +132,27 @@
   --bs-secondary: #{$secondary};
 }
 
-// Premium text gradient
-.text-gradient {
-  background: linear-gradient(45deg, $secondary, lighten($secondary, 20%));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  text-fill-color: transparent;
+// Hero section styles
+.hero {
+  .text-gradient {
+    color: $secondary;
+    font-weight: bold;
+  }
+
+  .btn-outline-light {
+    &:hover {
+      background-color: rgba(255, 255, 255, 0.2);
+      border-color: white;
+    }
+  }
+
+  .badge {
+    background-color: rgba(255, 255, 255, 0.9) !important;
+    color: $primary !important;
+    font-weight: 600;
+    border: none;
+    padding: 0.75rem 1.5rem;
+  }
 }
 
 // Premium button styles
@@ -165,12 +189,43 @@
   --bs-navbar-hover-color: rgba(255, 255, 255, 0.9);
 }
 
+// Transitions
+.transition-opacity {
+  transition: opacity 0.3s ease;
+}
+
 // Dark mode styles
 [data-bs-theme="dark"] {
-  --bs-body-bg: #1a1a1a;
   --bs-body-color: white;
-  --bs-navbar-color: white;
-  --bs-navbar-hover-color: rgba(255, 255, 255, 0.9);
   --bs-btn-color: white;
   --bs-btn-hover-color: white;
+
+  .navbar {
+    background-color: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(10px);
+
+    .navbar-brand img {
+      filter: none;
+    }
+
+    .nav-link {
+      color: white;
+      
+      &:after {
+        background-color: $secondary;
+      }
+    }
+  }
+
+  .badge.bg-light {
+    background: rgba(255, 255, 255, 0.1) !important;
+    color: white !important;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+
+  // Remove any background color from hero section
+  .hero {
+    background: none;
+  }
 }
