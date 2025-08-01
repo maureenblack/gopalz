@@ -258,26 +258,36 @@ export default function Home() {
                 </li>
               </ul>
             </div>
-            <div className="col-md-6">
-              <Image 
-                src="/window.svg" 
-                alt="Trust System" 
-                width={500} 
-                height={400} 
-                className="img-fluid"
-              />
+            <div className="col-md-6 d-flex align-items-center justify-content-center">
+              <div className="position-relative" style={{ width: '100%', height: '400px' }}>
+                <Image 
+                  src="/blockchain.jpeg" 
+                  alt="Blockchain Trust System" 
+                  fill
+                  style={{ objectFit: 'cover' }}
+                  className="rounded-lg shadow-lg"
+                  priority
+                />
+              </div>
             </div>
           </div>
         </div>
       </section>
 
       {/* Footer */}
-      <footer className="py-5 bg-dark text-light">
+      <footer className="py-5">
         <div className="container">
           <div className="row">
             <div className="col-md-6">
-              <Image src="/file.svg" alt="GoPalz Logo" width={120} height={40} className="mb-4" />
-              <p>Join our community of adventure seekers</p>
+              <Image 
+                src="/Gopalzlogo.svg" 
+                alt="GoPalz Logo" 
+                width={180} 
+                height={60} 
+                className="mb-4" 
+                priority
+              />
+              <p className="text-light fs-5">Join our community of adventure seekers</p>
               <div className="d-flex gap-3 mb-4">
                 <a href="#" className="text-light">
                   <i className="bi bi-twitter-x fs-5"></i>

@@ -198,6 +198,59 @@
   }
 }
 
+// Footer styles
+footer {
+  background-color: var(--bs-dark);
+  color: var(--bs-light);
+  .col-md-6:first-child {
+    img {
+      transition: filter 0.3s ease;
+    }
+  }
+}
+
+// Light mode footer
+[data-bs-theme="light"] footer {
+  .col-md-6:first-child img {
+    filter: none; // Keep original purple color
+    
+    &:hover {
+      filter: brightness(1.1);
+    }
+  }
+}
+
+// Dark mode footer
+[data-bs-theme="dark"] footer {
+  .col-md-6:first-child img {
+    filter: brightness(0) invert(1);
+    
+    &:hover {
+      filter: brightness(0) invert(0.9);
+    }
+  }
+}
+
+// Trust section styles
+#trust {
+  .rounded-lg {
+    border-radius: 1rem !important;
+  }
+
+  .shadow-lg {
+    box-shadow: 0 20px 40px rgba(0,0,0,0.2) !important;
+  }
+
+  .bi-check-circle {
+    font-size: 1.25rem;
+  }
+
+  ul li {
+    margin-bottom: 1.25rem;
+    font-size: 1.1rem;
+  }
+}
+
 // Adventure card styles
 .adventure-card {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
