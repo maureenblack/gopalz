@@ -1,8 +1,10 @@
 import type { AppProps } from 'next/app';
 import { useEffect } from 'react';
 import '@/styles/globals.scss';
+import { AuthProvider } from '@/contexts/AuthContext';
 
 export default function App({ Component, pageProps }: AppProps) {
+  // Wrap the app with AuthProvider
   useEffect(() => {
     // Import Bootstrap JS only on client side
     if (typeof window !== 'undefined') {
@@ -18,5 +20,9 @@ export default function App({ Component, pageProps }: AppProps) {
     )
   }, [])
 
-  return <Component {...pageProps} />
+  return (
+    <AuthProvider>
+      <Component {...pageProps} />
+    </AuthProvider>
+  )
 }
