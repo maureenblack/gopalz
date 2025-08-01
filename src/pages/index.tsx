@@ -30,9 +30,8 @@ export default function Home() {
       <Head>
         <title>GoPalz - Find Your Next Adventure Buddy</title>
         <link rel="icon" href="/Gopalzicon.png" />
-        <link rel="icon" href="/Gopalzicon.png" type="image/png" />
-        <link rel="apple-touch-icon" href="/Gopalzicon.png" />
-        <link rel="shortcut icon" href="/Gopalzicon.png" type="image/png" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet" />
         <meta name="description" content="Connect with trusted adventure buddies for your next outdoor experience" />
       </Head>
 
@@ -124,9 +123,9 @@ export default function Home() {
             <Link href="/signup" className="btn btn-primary btn-lg shadow-lg px-5 py-3">
               Start Your Journey
             </Link>
-            <a href="#how-it-works" className="btn btn-outline-light btn-lg px-5 py-3">
+            <Link href="/about" className="btn btn-secondary btn-lg px-5 py-3 btn-glow">
               Learn More
-            </a>
+            </Link>
           </div>
           <div className="mt-5 pt-3 animate__animated animate__fadeIn animate__delay-3s">
             <p className="mb-2">Trusted by adventurers in</p>
@@ -182,34 +181,40 @@ export default function Home() {
           <div className="row g-4">
             {[
               {
-                title: 'Mountain Hiking',
-                location: 'Swiss Alps',
+                title: 'Mount Cameroon Trek',
+                location: 'Buea',
                 date: 'Aug 15, 2025',
                 spots: 3,
-                image: 'https://source.unsplash.com/800x600/?mountains'
+                image: '/hero.png'
               },
               {
-                title: 'Rock Climbing',
-                location: 'Joshua Tree',
+                title: 'Traditional Mountain Hut Stay',
+                location: 'Mount Cameroon',
                 date: 'Sep 1, 2025',
                 spots: 2,
-                image: 'https://source.unsplash.com/800x600/?climbing'
+                image: '/hut2.webp'
               },
               {
-                title: 'Kayaking',
-                location: 'Lake Tahoe',
+                title: 'Limbe Beach Adventure',
+                location: 'Limbe',
                 date: 'Aug 20, 2025',
                 spots: 4,
-                image: 'https://source.unsplash.com/800x600/?kayak'
+                image: '/limbe.webp'
               }
             ].map((adventure, index) => (
               <div key={index} className="col-md-4">
                 <div className="card h-100 adventure-card">
-                  <img 
-                    src={adventure.image} 
-                    className="card-img-top" 
-                    alt={adventure.title}
-                  />
+                  <div className="position-relative" style={{ height: '240px' }}>
+                    <Image 
+                      src={adventure.image} 
+                      alt={adventure.title}
+                      fill
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                      priority
+                      className="rounded-top"
+                      style={{ objectFit: 'cover' }}
+                    />
+                  </div>
                   <div className="card-body">
                     <h3 className="h5">{adventure.title}</h3>
                     <p className="mb-2">
