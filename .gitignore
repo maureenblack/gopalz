@@ -2,6 +2,8 @@
 
 # dependencies
 /node_modules
+/node_modules_old
+node_modules_old/
 /.pnp
 .pnp.*
 .yarn/*
@@ -23,6 +25,7 @@
 # misc
 .DS_Store
 *.pem
+start-dev.sh
 
 # debug
 npm-debug.log*

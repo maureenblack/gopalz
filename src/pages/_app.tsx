@@ -1,6 +1,7 @@
 import type { AppProps } from 'next/app';
 import { useEffect } from 'react';
 import { useRouter } from 'next/router';
+import Head from 'next/head';
 import '@/styles/globals.scss';
 import '@/styles/auth.scss';
 import { AuthProvider } from '@/contexts/AuthContext';
@@ -30,6 +31,16 @@ export default function App({ Component, pageProps }: AppProps) {
 
   return (
     <AuthProvider>
+      <Head>
+        <title>GoPalz - Adventure Buddy Finder</title>
+        <link rel="icon" href="/favicon.png" />
+        <link rel="apple-touch-icon" sizes="180x180" href="/Gopalzicon.png" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png" />
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon.png" />
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+        <meta name="theme-color" content="#4CAF50" />
+        <meta name="description" content="Find adventure buddies for your next outdoor trip" />
+      </Head>
       {shouldUseLayout ? (
         <Layout>
           <Component {...pageProps} />

@@ -18,8 +18,13 @@ export default function Navbar() {
     }
   };
 
+  // Brand colors
+  const electricPurple = '#8A2BE2';
+  const vibrantCyan = '#00FFFF';
+  const gradientBg = `linear-gradient(135deg, ${electricPurple}, ${vibrantCyan})`;
+
   return (
-    <nav className="navbar navbar-expand-lg bg-white border-bottom sticky-top">
+    <nav className="navbar navbar-expand-lg sticky-top" style={{ background: gradientBg }}>
       <div className="container">
         <Link href="/" className="navbar-brand d-flex align-items-center">
           <Image
@@ -32,12 +37,13 @@ export default function Navbar() {
         </Link>
 
         <button
-          className="navbar-toggler"
+          className="navbar-toggler border-white"
           type="button"
           onClick={() => setIsOpen(!isOpen)}
           aria-controls="navbarNav"
           aria-expanded={isOpen}
           aria-label="Toggle navigation"
+          style={{ color: 'white' }}
         >
           <span className="navbar-toggler-icon"></span>
         </button>
@@ -47,7 +53,7 @@ export default function Navbar() {
             <li className="nav-item">
               <Link 
                 href="/trips" 
-                className={`nav-link ${router.pathname.startsWith('/trips') ? 'active' : ''}`}
+                className={`nav-link fw-bold text-white ${router.pathname.startsWith('/trips') ? 'active' : ''}`}
               >
                 Adventures
               </Link>
@@ -56,7 +62,7 @@ export default function Navbar() {
               <li className="nav-item">
                 <Link 
                   href="/trips/create" 
-                  className={`nav-link ${router.pathname === '/trips/create' ? 'active' : ''}`}
+                  className={`nav-link fw-bold text-white ${router.pathname === '/trips/create' ? 'active' : ''}`}
                 >
                   Create Trip
                 </Link>
@@ -69,7 +75,7 @@ export default function Navbar() {
               <>
                 <li className="nav-item dropdown">
                   <a
-                    className="nav-link dropdown-toggle"
+                    className="nav-link dropdown-toggle text-white fw-bold"
                     href="#"
                     role="button"
                     data-bs-toggle="dropdown"
@@ -100,10 +106,10 @@ export default function Navbar() {
             ) : (
               <>
                 <li className="nav-item">
-                  <Link href="/login" className="nav-link">Sign In</Link>
+                  <Link href="/login" className="nav-link text-white fw-bold">Sign In</Link>
                 </li>
                 <li className="nav-item">
-                  <Link href="/signup" className="btn btn-primary ms-2">Sign Up</Link>
+                  <Link href="/signup" className="btn fw-bold" style={{ backgroundColor: vibrantCyan, color: '#000' }}>Sign Up</Link>
                 </li>
               </>
             )}
