@@ -1,8 +1,8 @@
 import { initializeApp, getApps } from 'firebase/app';
-import { getAnalytics } from 'firebase/analytics';
-import { getAuth } from 'firebase/auth';
-import { getFirestore } from 'firebase/firestore';
-import { getStorage } from 'firebase/storage';
+import { getAnalytics, Analytics } from 'firebase/analytics';
+import { getAuth, Auth } from 'firebase/auth';
+import { getFirestore, Firestore } from 'firebase/firestore';
+import { getStorage, FirebaseStorage } from 'firebase/storage';
 
 const firebaseConfig = {
   apiKey: "AIzaSyBhlUazexpv1z2gUTtMcylGgKT6m8QcDYs",
@@ -15,11 +15,11 @@ const firebaseConfig = {
 };
 
 // Initialize Firebase
-let app;
-let analytics = null;
-let auth;
-let db;
-let storage;
+let app: any;
+let analytics: Analytics | null = null;
+let auth: Auth;
+let db: Firestore;
+let storage: FirebaseStorage;
 
 try {
   // Check if Firebase is already initialized

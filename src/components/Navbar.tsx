@@ -5,29 +5,7 @@ import { useRouter } from 'next/router';
 import { useAuth } from '@/contexts/AuthContext';
 
 export default function Navbar() {
-  // Add custom CSS for mobile menu
-  if (typeof document !== 'undefined') {
-    // Only run in browser environment
-    const style = document.createElement('style');
-    style.innerHTML = `
-      @media (max-width: 991.98px) {
-        .navbar-collapse.show {
-          display: block !important;
-          background-color: #8A2BE2 !important;
-          width: 100% !important;
-          position: absolute !important;
-          top: 56px !important;
-          left: 0 !important;
-          padding: 1rem !important;
-          z-index: 1000 !important;
-        }
-        .navbar-collapse.show .nav-link {
-          color: white !important;
-        }
-      }
-    `;
-    document.head.appendChild(style);
-  }
+  // Mobile menu styling is in src/styles/navbar.css
   const { user, logout } = useAuth();
   const router = useRouter();
   const [isOpen, setIsOpen] = useState(false);
@@ -61,15 +39,15 @@ export default function Navbar() {
         </Link>
 
         <button
-          className="navbar-toggler border-white"
+          className="navbar-toggler"
           type="button"
           onClick={() => setIsOpen(!isOpen)}
           aria-controls="navbarNav"
           aria-expanded={isOpen}
           aria-label="Toggle navigation"
-          style={{ color: 'white' }}
+          style={{ backgroundColor: 'white', borderColor: electricPurple }}
         >
-          <span className="navbar-toggler-icon" style={{ filter: 'brightness(0) invert(1)' }}></span>
+          <span className="navbar-toggler-icon"></span>
         </button>
 
         <div 
