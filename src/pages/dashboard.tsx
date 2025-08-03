@@ -368,7 +368,7 @@ export default function Dashboard() {
               </ul>
             </div>
             
-            <div className="card-body p-4">
+            <div className="card-body p-4" style={{ minHeight: '300px', border: '1px solid #f0f0f0', borderRadius: '0 0 0.5rem 0.5rem' }}>
               {loading ? (
                 <div className="d-flex flex-column justify-content-center align-items-center py-5">
                   <div className="spinner-border mb-3" style={{ width: '3rem', height: '3rem', color: electricPurple }} role="status">
@@ -460,16 +460,19 @@ export default function Dashboard() {
                           ))}
                         </div>
                       ) : (
-                        <div className="text-center py-5">
+                        <div className="text-center py-5" style={{ backgroundColor: '#f9f9f9', borderRadius: '0.5rem' }}>
                           <div className="mb-3">
-                            <i className="bi bi-calendar-plus" style={{ fontSize: '48px', color: '#ccc' }}></i>
+                            <i className="bi bi-calendar-plus" style={{ fontSize: '48px', color: electricPurple }}></i>
                           </div>
-                          <h5>No Upcoming Adventures</h5>
+                          <h5 style={{ color: electricPurple }}>No Upcoming Adventures</h5>
                           <p className="text-muted mb-4">Time to plan your next adventure!</p>
-                          <Link href="/trips/create" className="btn btn-lg fw-bold" style={{ backgroundColor: electricPurple, color: 'white' }}>
+                          <Link href="/trips/create" className="btn btn-lg fw-bold" style={{ backgroundColor: gold, color: '#000' }}>
                             <i className="bi bi-plus-circle me-2"></i>
                             Create Your First Adventure
                           </Link>
+                          <div className="mt-3 small text-muted">
+                            {upcomingTrips.length === 0 ? 'No trips found in database' : `Found ${upcomingTrips.length} trips (not visible)`}
+                          </div>
                         </div>
                       )}
                     </>
@@ -522,12 +525,15 @@ export default function Dashboard() {
                           ))}
                         </div>
                       ) : (
-                        <div className="text-center py-5">
+                        <div className="text-center py-5" style={{ backgroundColor: '#f9f9f9', borderRadius: '0.5rem' }}>
                           <div className="mb-3">
-                            <i className="bi bi-clock-history" style={{ fontSize: '48px', color: '#ccc' }}></i>
+                            <i className="bi bi-clock-history" style={{ fontSize: '48px', color: electricPurple }}></i>
                           </div>
-                          <h5>No Past Adventures</h5>
-                          <p className="text-muted">Your adventure history will appear here</p>
+                          <h5 style={{ color: electricPurple }}>No Past Adventures</h5>
+                          <p className="text-muted">Your completed adventures will appear here</p>
+                          <div className="mt-3 small text-muted">
+                            {pastTrips.length === 0 ? 'No past trips found in database' : `Found ${pastTrips.length} past trips (not visible)`}
+                          </div>
                         </div>
                       )}
                     </>

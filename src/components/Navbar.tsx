@@ -5,6 +5,29 @@ import { useRouter } from 'next/router';
 import { useAuth } from '@/contexts/AuthContext';
 
 export default function Navbar() {
+  // Add custom CSS for mobile menu
+  if (typeof document !== 'undefined') {
+    // Only run in browser environment
+    const style = document.createElement('style');
+    style.innerHTML = `
+      @media (max-width: 991.98px) {
+        .navbar-collapse.show {
+          display: block !important;
+          background-color: #8A2BE2 !important;
+          width: 100% !important;
+          position: absolute !important;
+          top: 56px !important;
+          left: 0 !important;
+          padding: 1rem !important;
+          z-index: 1000 !important;
+        }
+        .navbar-collapse.show .nav-link {
+          color: white !important;
+        }
+      }
+    `;
+    document.head.appendChild(style);
+  }
   const { user, logout } = useAuth();
   const router = useRouter();
   const [isOpen, setIsOpen] = useState(false);
@@ -20,11 +43,12 @@ export default function Navbar() {
 
   // Brand colors
   const electricPurple = '#8A2BE2';
-  const vibrantCyan = '#00FFFF';
-  const gradientBg = `linear-gradient(135deg, ${electricPurple}, ${vibrantCyan})`;
+  const gold = '#FFD700';
+  const darkGold = '#DAA520'; // For hover states
+  const lightPurple = '#B185DB'; // For accents and hover states
 
   return (
-    <nav className="navbar navbar-expand-lg sticky-top" style={{ background: gradientBg }}>
+    <nav className="navbar navbar-expand-lg sticky-top" style={{ backgroundColor: electricPurple }}>
       <div className="container">
         <Link href="/" className="navbar-brand d-flex align-items-center">
           <Image
@@ -45,10 +69,24 @@ export default function Navbar() {
           aria-label="Toggle navigation"
           style={{ color: 'white' }}
         >
-          <span className="navbar-toggler-icon"></span>
+          <span className="navbar-toggler-icon" style={{ filter: 'brightness(0) invert(1)' }}></span>
         </button>
 
-        <div className={`collapse navbar-collapse ${isOpen ? 'show' : ''}`} id="navbarNav">
+        <div 
+          className={`collapse navbar-collapse ${isOpen ? 'show' : ''}`} 
+          id="navbarNav" 
+          style={{ 
+            backgroundColor: electricPurple,
+            position: isOpen ? 'absolute' : 'static',
+            top: isOpen ? '56px' : 'auto',
+            left: isOpen ? '0' : 'auto',
+            right: isOpen ? '0' : 'auto',
+            width: isOpen ? '100%' : 'auto',
+            padding: isOpen ? '1rem' : '0',
+            zIndex: 1000,
+            boxShadow: isOpen ? '0 10px 15px -3px rgba(0, 0, 0, 0.1)' : 'none'
+          }}
+        >
           <ul className="navbar-nav me-auto">
             <li className="nav-item">
               <Link 
@@ -109,7 +147,7 @@ export default function Navbar() {
                   <Link href="/login" className="nav-link text-white fw-bold">Sign In</Link>
                 </li>
                 <li className="nav-item">
-                  <Link href="/signup" className="btn fw-bold" style={{ backgroundColor: vibrantCyan, color: '#000' }}>Sign Up</Link>
+                  <Link href="/signup" className="btn fw-bold" style={{ backgroundColor: gold, color: '#000' }}>Sign Up</Link>
                 </li>
               </>
             )}
