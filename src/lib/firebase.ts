@@ -24,14 +24,20 @@ let storage: FirebaseStorage;
 try {
   // Check if Firebase is already initialized
   app = getApps().length === 0 ? initializeApp(firebaseConfig) : getApps()[0];
-
+  
+  // Initialize auth regardless of environment
+  auth = getAuth(app);
+  
   // Only initialize client-side services in browser environment
   if (typeof window !== 'undefined') {
     analytics = getAnalytics(app);
-    auth = getAuth(app);
     auth.useDeviceLanguage(); // Set auth language to match device
 
     // Initialize other services
+    db = getFirestore(app);
+    storage = getStorage(app);
+  } else {
+    // Server-side initialization
     db = getFirestore(app);
     storage = getStorage(app);
   }

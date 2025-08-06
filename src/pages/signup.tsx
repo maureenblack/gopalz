@@ -39,13 +39,16 @@ export default function SignUp() {
       try {
         setError('');
         setLoading(true);
+        console.log('Starting signup process...');
         await signUp(values.email, values.password, values.name);
+        console.log('Signup successful');
         setShowSuccess(true);
         // Wait for the toast to be visible before redirecting
         setTimeout(() => {
           router.push('/dashboard');
         }, 1500);
       } catch (err: any) {
+        console.error('Signup error:', err);
         setError(err.message || 'Failed to create account');
       } finally {
         setLoading(false);
