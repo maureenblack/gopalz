@@ -41,7 +41,8 @@ GoPalz aims to transform adventure tourism in Cameroon by:
 
 
 <div align="center">
-  <img src="public/Capture - Sign Up - GoPalz - [localhost].png" alt="GoPalz Signup" width="80%"/>
+  <img src=".png"<img width="555" height="940" alt="Capture - Sign Up - GoPalz -  localhost" src="https://github.com/user-attachments/assets/f964ce6b-00ef-4ab4-bc12-778c66e10f74" />
+ alt="GoPalz Signup" width="80%"/>
   <p><em>Our secure signup process - the first step to joining the GoPalz adventure community</em></p>
 </div>
 
